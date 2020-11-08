@@ -1,19 +1,8 @@
 const express = require('express');
-const cors = require('cors');
-require('dotenv').config(); // To use env variables
-require('./db/connectDB');
-const app = express();
+const router = express.Router();
+//  Import controller
+const { signup } = require('../controllers/auth');
 
-// Import routes
-const authRoutes = require('./routes/auth');
+router.post('/signup', signup);
 
-app.use(express.json());
-app.use(cors());
-
-// Middlewares
-app.use('/api', authRoutes);
-
-const port = process.env.PORT;
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
-});
+module.exports = router;
