@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config(); // To use env variables
-require('./db/connectDB');
+// require('./db/connectDB');
 const app = express();
 
 // Import routes
